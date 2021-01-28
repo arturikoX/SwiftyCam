@@ -39,19 +39,7 @@ import AVFoundation
 
 @objcMembers open class PreviewView: UIView {
     
-    public var gravity: SwiftyCamVideoGravity = .resizeAspect {
-        didSet {
-            let previewlayer = layer as! AVCaptureVideoPreviewLayer
-            switch gravity {
-            case .resize:
-                previewlayer.videoGravity = AVLayerVideoGravity.resize
-            case .resizeAspect:
-                previewlayer.videoGravity = AVLayerVideoGravity.resizeAspect
-            case .resizeAspectFill:
-                previewlayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            }
-        }
-    }
+    private var gravity: SwiftyCamVideoGravity = .resizeAspect
     
     init(frame: CGRect, videoGravity: SwiftyCamVideoGravity) {
         gravity = videoGravity
